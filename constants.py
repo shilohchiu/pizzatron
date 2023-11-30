@@ -2,8 +2,7 @@
 All the major constants our game relies on.
 """
 
-"""
-TOPPINGS_KEY = {'pepperoni' : 'e',
+TOPPINGS = {'pepperoni' : 'e',
                 'anchovy' : '𓆟',
                 'mushroom' : 'cD',
                 'meatball' : "O",
@@ -11,7 +10,7 @@ TOPPINGS_KEY = {'pepperoni' : 'e',
                 'bacon' : "฿",
                 'olive' : 'ʘ',
                 }
-"""
+
 
 
 

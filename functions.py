@@ -13,11 +13,10 @@ def replace_blank(topping, pizza):
     if lst[c] == '_' and lst[c - 1] == '(' and lst[c+1] == ')':
       lst[c] = topping
 
-    good_lst = replace_blank('topping')
     empty = ''
     p = 0
-    for g in good_lst:
-        empty += good_lst[p]
+    for _ in lst:
+        empty += lst[p]
         p += 1
 
   return empty
