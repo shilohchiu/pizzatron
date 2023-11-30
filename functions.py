@@ -1,5 +1,17 @@
 """
 All the major functions our game relies on.
+----------------replace_blank()----------------
+- takes two arguments (topping and the pizza) 
+and replaces the underscores in the second 
+argument to have the topping.
+- returns the modified verson of the second
+argument
+-----------------write_stats()-----------------
+- writes a .txt file to the user's computer that
+shows them the stats of their game when the user
+finishes the game
+----------------level_up()----------------
+- allows more dictionary keys to be unlocked
 """
 
 def replace_blank(topping, pizza):
