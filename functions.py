@@ -14,7 +14,9 @@ finishes the game
 - allows more dictionary keys to be unlocked
 ----------------generate_pizza()----------------
 - generates a new pizza + prints it out the screen
-asking the user to recreate it
+asking the user to recreate it (uses the random 
+generator)
+- takes the list of unlocked toppings as an argument
 ----------------score_pizza()----------------
 - used with replace_blank, will take the user
 input and give a score out of 10 based on 
@@ -29,7 +31,8 @@ def replace_blank(topping, pizza):
     lst.append(character)
 
   for c in range(len(lst)):
-    if lst[c] == '_' and lst[c - 1] == '(' and lst[c+1] == ')':
+    if lst[c] == '_' and \
+    lst[c - 1] == '(' and lst[c+1] == ')':
       lst[c] = topping
 
     new_pizza = ''
@@ -41,10 +44,4 @@ def replace_blank(topping, pizza):
   return new_pizza
 
 
-    
-# print(empty)
-
-
-# def make_pizza():
-
-# def score_pizza():
+# def score_pizza(topping, made_pizza):
