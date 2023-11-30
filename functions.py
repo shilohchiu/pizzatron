@@ -12,6 +12,13 @@ shows them the stats of their game when the user
 finishes the game
 ----------------level_up()----------------
 - allows more dictionary keys to be unlocked
+----------------generate_pizza()----------------
+- generates a new pizza + prints it out the screen
+asking the user to recreate it
+----------------score_pizza()----------------
+- used with replace_blank, will take the user
+input and give a score out of 10 based on 
+game parameters
 """
 
 def replace_blank(topping, pizza):
@@ -25,13 +32,13 @@ def replace_blank(topping, pizza):
     if lst[c] == '_' and lst[c - 1] == '(' and lst[c+1] == ')':
       lst[c] = topping
 
-    empty = ''
+    new_pizza = ''
     p = 0
     for _ in lst:
-        empty += lst[p]
+        new_pizza += lst[p]
         p += 1
 
-  return empty
+  return new_pizza
 
 
     
@@ -39,3 +46,5 @@ def replace_blank(topping, pizza):
 
 
 # def make_pizza():
+
+# def score_pizza():
