@@ -25,18 +25,17 @@ game parameters
 
 import random
 
-# def str_to_lst():
-
+def str_to_lst(str):
+  lst = []
+  for char in str:
+    lst.append(char)
+  return lst
 
 # def lst_to_str():
 
 
 def replace_blank(topping, pizza):
-  lst = []
-  # reads through the pizza and replaces 
-  # each underscore with the topping
-  for character in pizza:
-    lst.append(character)
+  lst = str_to_lst(pizza)
 
   for c in range(len(lst)):
     if lst[c] == '_' and \
@@ -66,10 +65,7 @@ def generate_pizza(unlocked_toppings, pizza_template):
 
   # picks random underscores and replaces them
   # with each of the symbols
-  generated_pizza = []
-  
-  for character in pizza_template:
-    generated_pizza.append(character)
+  generated_pizza = str_to_lst(pizza_template)
 
   for i, topping in enumerate(picked_toppings):
 
@@ -103,7 +99,5 @@ def generate_pizza(unlocked_toppings, pizza_template):
   print(picked_toppings)
 
   return new_pizza
-
-
 
 # def score_pizza(topping, made_pizza):
