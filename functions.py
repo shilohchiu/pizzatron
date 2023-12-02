@@ -138,6 +138,12 @@ def level_up(level, toppings_dict, available_toppings):
   level += 1
   available_toppings.append(toppings_dict[level]['symbol'])
 
-def score_pizza(made_pizza):
+def score_pizza(made_pizza, model_pizza):
   made_pizza_lst = str_to_lst(made_pizza) # use lst to check if the pizza topping is in the list
-
+  model_pizza_lst = str_to_lst(model_pizza)
+  score = 31
+  for i2 in range(len(made_pizza_lst)):
+    if not made_pizza_lst[i2] == model_pizza_lst[i2]:
+      score -= 1
+  percent_score = int(score * 100 / 31)
+  return percent_score
