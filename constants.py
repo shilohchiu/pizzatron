@@ -2,20 +2,30 @@
 All the major constants our game relies on.
 """
 
-TOPPINGS = {'pepperoni' : 'e',
-                'anchovy' : '𓆟',
-                'mushroom' : 'cD',
-                'meatball' : "O",
-                'pineapple' : "ߜ",
-                'bacon' : "฿",
-                'olive' : 'ʘ',
+LEVELS = {  1:
+              {'name':'pepperoni',
+               'symbol':'e'},
+            2:
+              {'name':'anchovy',
+               'symbol':'𓆟'},
+            3:
+              {'name':'mushroom',
+               'symbol': '𓋼'},
+            4:
+              {'name':'meatball',
+               'symbol': "O"},
+            5:
+              {'name':'pineapple',
+               'symbol': 'ߜ'},
+            6:
+              {'name':'bacon',
+               'symbol': '฿'},
+            7:
+            {'name':'olive',
+             'symbol': 'ʘ'}
                 }
 
-
-
-
-
-PIZZASTR = r"""\
+PIZZASTR = r"""
                      _____
               __--~~~     ~~~--__
            ,/'   m%%%%%%%=@%%m   `\.
@@ -39,7 +49,7 @@ PIZZASTR = r"""\
                `~--.._____,,--~'
 """
 
-CHEESEPIZZA = r"""\
+CHEESEPIZZA = r"""
                      _____
               __--~~~     ~~~--__
            ,/'   m%%%%%%%=@%%m   `\.

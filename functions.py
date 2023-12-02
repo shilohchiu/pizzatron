@@ -26,6 +26,9 @@ game parameters
 
 import random
 import constants
+import time
+import sys
+import math
 
 def str_to_lst(str):
   lst = []
@@ -56,6 +59,7 @@ def replace_blank(topping, pizza):
         p += 1
 
   return new_pizza
+
 
 def topping_valid(userkey):
     topps = constants.TOPPINGS
@@ -147,3 +151,9 @@ def score_pizza(made_pizza, model_pizza):
       score -= 1
   percent_score = int(score * 100 / 31)
   return percent_score
+
+def fun_type(str):
+   for i, char in enumerate(str):
+      sys.stdout.write(char)
+      sys.stdout.flush()
+      time.sleep(.2/(i+1))
