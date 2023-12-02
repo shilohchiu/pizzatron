@@ -128,5 +128,3 @@ def fun_type(str):
       sys.stdout.flush()
   time.sleep(.75)
 
-if __name__ == "__main__":
-  
