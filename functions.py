@@ -25,6 +25,10 @@ game parameters
 # test
 
 import random
+import constants
+import time
+import sys
+import math
 
 def str_to_lst(str):
   lst = []
@@ -32,7 +36,12 @@ def str_to_lst(str):
     lst.append(char)
   return lst
 
-# def lst_to_str():
+def lst_to_str(lst1):
+    str1 = ""
+    for char1 in lst1:
+        str += char1
+    return str1
+
 
 
 def replace_blank(topping, pizza):
@@ -50,6 +59,17 @@ def replace_blank(topping, pizza):
         p += 1
 
   return new_pizza
+
+def input_pizza():
+    user_pizza = str_to_lst(constants.PIZZASTR)
+    toppingnum = 1
+    while '(_)' in lst_to_str(user_pizza):
+        newtop = input("What will you make for topping #" + str(toppingnum) + "?")
+        for v in user_pizza:
+            if user_pizza[v] == '_' and user_pizza[v-1] == '(':
+                user_pizza[v] = newtop
+            break
+        print(lst_to_str(user_pizza))
 
 def generate_pizza(unlocked_toppings, pizza_template):
   # takes the lst of unlocked pizza toppings
@@ -108,3 +128,8 @@ def level_up(level, toppings_dict, available_toppings):
 def score_pizza(made_pizza):
   made_pizza_lst = str_to_lst(made_pizza) # use lst to check if the pizza topping is in the list
 
+def fun_type(str):
+   for i, char in enumerate(str):
+      sys.stdout.write(char)
+      sys.stdout.flush()
+      time.sleep(.2/(i+1))
