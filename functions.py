@@ -36,7 +36,7 @@ def str_to_lst(str):
 def lst_to_str(lst1):
     str1 = ""
     for char1 in lst1:
-        str += char1
+        str1 += char1
     return str1
 
 
@@ -57,16 +57,32 @@ def replace_blank(topping, pizza):
 
   return new_pizza
 
+def topping_valid(userkey):
+    topps = constants.TOPPINGS
+    cur_key = userkey
+    while cur_key not in topps:
+        cur_key = input("Sorry, " + cur_key + " is not a valid pizza topping! Type a valid topping here: ")
+    return topps.get(cur_key)
+        
+
 def input_pizza():
+    #iterates through topping spaces and replaces space with topping input
     user_pizza = str_to_lst(constants.PIZZASTR)
     toppingnum = 1
+    print(lst_to_str(user_pizza))
     while '(_)' in lst_to_str(user_pizza):
-        newtop = input("What will you make for topping #" + str(toppingnum) + "?")
+        newtop = input("What will you make for topping #" + str(toppingnum) + "? ")
+        top_symbol = topping_valid(newtop)
+        i1 = 1
         for v in user_pizza:
-            if user_pizza[v] == '_' and user_pizza[v-1] == '(':
-                user_pizza[v] = newtop
-            break
+            if user_pizza[i1] == '_' and user_pizza[i1-1] == '(':
+                user_pizza[i1] = top_symbol
+                break
+            i1 += 1
+            
         print(lst_to_str(user_pizza))
+        toppingnum += 1
+    return user_pizza
 
 def generate_pizza(unlocked_toppings, pizza_template):
   # takes the lst of unlocked pizza toppings
