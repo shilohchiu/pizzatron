@@ -22,6 +22,7 @@ generator)
 input and give a score out of 10 based on 
 game parameters
 """
+# test
 
 import random
 
@@ -100,4 +101,10 @@ def generate_pizza(unlocked_toppings, pizza_template):
 
   return new_pizza
 
-# def score_pizza(topping, made_pizza):
+def level_up(level, toppings_dict, available_toppings):
+  level += 1
+  available_toppings.append(toppings_dict[level]['symbol'])
+
+def score_pizza(made_pizza):
+  made_pizza_lst = str_to_lst(made_pizza) # use lst to check if the pizza topping is in the list
+
