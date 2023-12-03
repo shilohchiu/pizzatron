@@ -8,6 +8,7 @@ import time
 
 if __name__ == "__main__":
    level = 0
+   score = 0
    toppings = {} # <-- name : symbol
    # initializes the list of toppings (based on dictionary
    # toppings); changes as more toppings are available to 
@@ -48,12 +49,16 @@ if __name__ == "__main__":
                 "one at a time. For example, if I want put an anchovy on "\
                 "the pizza, I would just type 'anchovy' into the terminal.")
    fun.fun_type("When the pizza is completely full, we'll score your pizza "\
-                "and tell you how accurate. it is.")
+                "and tell you how accurate it is.")
    fun.fun_type("Once you reach the end of the game, we'll save a file "\
                 "of your results to your computer. ")
    time.sleep(1)
    fun.fun_type("Okay, let's begin!")
    # display LEVEL 1 and print the list of dictionaries
+   # make a "level up" loop that generates a pizza for each level # (another loop)
+   # while the score is above a certain #, after the score fails/the user fails to make a pizza 
+   # the loop ends
+   fun.level_up(level, toppings)
    
    # generate a pizza
    # each level has the same number of rounds as the level # 

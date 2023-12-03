@@ -12,8 +12,11 @@ shows them the stats of their game when the user
 finishes the game
 ----------------level_up()----------------
 - allows more dictionary keys to be unlocked and prints
-what level you are currently on and also the dictionary keys and what they are represented as symbolically.
-- if level != 1 then the computer will tell you the number of points you had on each round (calculated in the score pizza function)
+what level you are currently on and also the dictionary 
+keys and what they are represented as symbolically.
+- if level != 1 then the computer will tell you the 
+number of points you had on each round (calculated in 
+the score pizza function)
 ----------------generate_pizza()----------------
 - generates a new pizza + prints it out the screen
 asking the user to recreate it (uses the random 
@@ -61,7 +64,7 @@ def replace_blank(topping, pizza):
   return new_pizza
 
 def input_pizza():
-    user_pizza = str_to_lst(constants.PIZZASTR)
+    user_pizza = str_to_lst(con.PIZZASTR)
     toppingnum = 1
     while '(_)' in lst_to_str(user_pizza):
         newtop = input("What will you make for topping #" + str(toppingnum) + "?")
@@ -71,14 +74,16 @@ def input_pizza():
             break
         print(lst_to_str(user_pizza))
 
-def generate_pizza(unlocked_toppings, pizza_template):
+def pick_toppings(unlocked_toppings):
   picked_toppings = []
   for _ in range(random.randint(1,len(unlocked_toppings))):
     i = random.choice(unlocked_toppings)
     if i not in picked_toppings:
       picked_toppings.append(i)
+  return picked_toppings
 
 
+def generate_pizza(picked_toppings, pizza_template):
   generated_pizza = str_to_lst(pizza_template)
 
   for i, topping in enumerate(picked_toppings):
@@ -105,8 +110,12 @@ def generate_pizza(unlocked_toppings, pizza_template):
     if topping not in generated_pizza:
       picked_toppings.pop(i)
   print(picked_toppings)
-
+  
   return new_pizza
+# i split generate_pizza() into two functions:
+# pick_toppings and generate_pizza; this way 
+# we can keep a list of chosen toppings separate
+# and make checking the returned pizza way easier
 
 def level_up(level, available_toppings):
   level += 1
@@ -129,9 +138,37 @@ def level_up(level, available_toppings):
   fun_type(f"WELCOME TO LEVEL {level} OF PIZZATRON")
   fun_type("-------------------------------")
   # print(available_toppings)
+  while True:
+    fun_type("Would you like to be reminded of which toppings are available? "\
+             "If you select n, only new unlocked toppings will be shown to you.")
+    show_all = input("(y/n)\n")
+    if show_all.upper() == "Y":
+      fun_type("Here is a list of all toppings you have unlocked.")
+      for name, symbol in available_toppings.items():
+        fun_type(f"The topping {name} is represented by the symbol {symbol}.")
+      break
+    elif show_all.upper() == "N":
+      for key, info in new_toppings.items():
+        if key == "name":
+          name = info
+        elif key == "symbol":
+          symbol = info
+        if name and symbol:
+          fun_type(f"The topping {name} is represented by the symbol {symbol}.")
+          name = ''
+          symbol = ''
+      break
+    else:
+      fun_type("Please only type y or n as inputs! ")
+
+# def y_n_input():
+
 
 def score_pizza(made_pizza):
   made_pizza_lst = str_to_lst(made_pizza)
+  # plan: make it so that the distribution of pizza toppings is accurate, 
+  # as in it doesn't need to be exact, but the closer the number of a certain 
+  # topping it is to the actual # the higher score the user will receive.
 
 def fun_type(str):
   n = 0
