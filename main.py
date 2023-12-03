@@ -5,14 +5,17 @@ Shiloh Chiu and Alex Boswell
 
 import functions as fun
 import time
+import constants as con
 
 if __name__ == "__main__":
    level = 0
-   score = 0
+   total_score = 0
    toppings = {} # <-- name : symbol
    # initializes the list of toppings (based on dictionary
    # toppings); changes as more toppings are available to 
    # the user
+   symbols_lst = []
+
    fun.fun_type("----PIZZATRON: CS1210 FINAL PROJECT-----")
    fun.fun_type("Created by: Shiloh Chiu and Alex Boswell")
    while True:
@@ -48,6 +51,8 @@ if __name__ == "__main__":
    fun.fun_type("To recreate the pizza, just type the name of the topping, "\
                 "one at a time. For example, if I want put an anchovy on "\
                 "the pizza, I would just type 'anchovy' into the terminal.")
+   fun.fun_type("Try to keep the ratio of the toppings consistent -- this "\
+                "will impact your score!")
    fun.fun_type("When the pizza is completely full, we'll score your pizza "\
                 "and tell you how accurate it is.")
    fun.fun_type("Once you reach the end of the game, we'll save a file "\
@@ -59,6 +64,13 @@ if __name__ == "__main__":
    # while the score is above a certain #, after the score fails/the user fails to make a pizza 
    # the loop ends
    fun.level_up(level, toppings)
-   
+   fun.add_new_symbols(toppings, symbols_lst)
+   picked_toppings = fun.pick_toppings(symbols_lst)
+
+   target = fun.generate_pizza(picked_toppings)
+   fun.fun_type("The customer has ordered this pizza! ")
+   print(target)
+   # print(symbols_lst)
+
    # generate a pizza
    # each level has the same number of rounds as the level # 

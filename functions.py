@@ -63,6 +63,13 @@ def replace_blank(topping, pizza):
 
   return new_pizza
 
+def add_new_symbols(toppings, symbols):
+  # toppings is the dict
+  # toppings_symbols is the list
+  for symbol in toppings.values():
+    if symbol not in symbols:
+      symbols.append(symbol)
+
 def input_pizza():
     user_pizza = str_to_lst(con.PIZZASTR)
     toppingnum = 1
@@ -75,6 +82,7 @@ def input_pizza():
         print(lst_to_str(user_pizza))
 
 def pick_toppings(unlocked_toppings):
+  # working purely with symbols
   picked_toppings = []
   for _ in range(random.randint(1,len(unlocked_toppings))):
     i = random.choice(unlocked_toppings)
@@ -82,9 +90,8 @@ def pick_toppings(unlocked_toppings):
       picked_toppings.append(i)
   return picked_toppings
 
-
-def generate_pizza(picked_toppings, pizza_template):
-  generated_pizza = str_to_lst(pizza_template)
+def generate_pizza(picked_toppings):
+  generated_pizza = str_to_lst(con.PIZZASTR)
 
   for i, topping in enumerate(picked_toppings):
 
@@ -105,11 +112,9 @@ def generate_pizza(picked_toppings, pizza_template):
   for _ in generated_pizza:
       new_pizza += generated_pizza[p]
       p += 1
-  print(picked_toppings)
   for i, topping in enumerate(picked_toppings):
     if topping not in generated_pizza:
       picked_toppings.pop(i)
-  print(picked_toppings)
   
   return new_pizza
 # i split generate_pizza() into two functions:
@@ -118,6 +123,8 @@ def generate_pizza(picked_toppings, pizza_template):
 # and make checking the returned pizza way easier
 
 def level_up(level, available_toppings):
+  # available_toppings is the dictionary
+  # in main toppings
   level += 1
   name = ''
   symbol = ''
@@ -161,14 +168,27 @@ def level_up(level, available_toppings):
     else:
       fun_type("Please only type y or n as inputs! ")
 
-# def y_n_input():
-
-
-def score_pizza(made_pizza):
+def score_pizza(target, made_pizza, picked_toppings):
+  score = 5
   made_pizza_lst = str_to_lst(made_pizza)
+  target_pizza_lst = str_to_lst(target)
+  for topping in picked_toppings:
+    if topping not in made_pizza_lst:
+      score -= .2
+  for char in made_pizza_lst:
+    if char not in target_pizza_lst:
+      score -= .2
+  for topping in picked_toppings:
+    expected = target_pizza_lst.count(topping)
+    actual = made_pizza_lst.count(topping)
+    score -= abs(1 - ( actual / expected ))
+  return score
+  # count the toppings and return a score based on how close it is to the actual
+  # write code that checks for if there is a specifc
   # plan: make it so that the distribution of pizza toppings is accurate, 
   # as in it doesn't need to be exact, but the closer the number of a certain 
   # topping it is to the actual # the higher score the user will receive.
+  # use the count() method
 
 def fun_type(str):
   n = 0
@@ -184,6 +204,18 @@ def fun_type(str):
   sys.stdout.write("\n")
   time.sleep(.75)
 
-if __name__ == "__main__":
-  toppings = {}
-  level_up(0, toppings)
+"""def loading():
+  str = "Loading"
+  sys.stdout.write(str)
+  for char in "...":
+    sys.stdout.write(char)
+    sys.stdout.flush()
+    time.sleep(.125)
+  for i, char in enumerate("..."):
+    sys.stdout.write((i + 1) * "\b ")
+    sys.stdout.flush()
+    time.sleep(.125)
+  time.sleep(.75)"""
+
+# if __name__ == "__main__":
+  # loading()
