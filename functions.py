@@ -60,16 +60,34 @@ def replace_blank(topping, pizza):
 
   return new_pizza
 
+def topping_valid(userkey):
+  #tests if topping which user enters is a valid topping, called in input_pizza
+  topps = constants.TOPPINGS
+  cur_key = userkey
+  while cur_key not in topps:
+    cur_key = input("Sorry, " + cur_key + " is not a valid pizza topping! Type a valid topping here: ")
+  return topps.get(cur_key)
+        
+
 def input_pizza():
-    user_pizza = str_to_lst(constants.PIZZASTR)
-    toppingnum = 1
-    while '(_)' in lst_to_str(user_pizza):
-        newtop = input("What will you make for topping #" + str(toppingnum) + "?")
-        for v in user_pizza:
-            if user_pizza[v] == '_' and user_pizza[v-1] == '(':
-                user_pizza[v] = newtop
-            break
-        print(lst_to_str(user_pizza))
+  #iterates through topping spaces and replaces space with topping input
+  user_pizza = str_to_lst(constants.PIZZASTR)
+  toppingnum = 1
+  print(lst_to_str(user_pizza))
+  while '(_)' in lst_to_str(user_pizza):
+    newtop = input("What will you make for topping #" + str(toppingnum) + "? ")
+    top_symbol = topping_valid(newtop)
+    i1 = 1
+    for v in user_pizza:
+      if user_pizza[i1] == '_' and user_pizza[i1-1] == '(':
+        user_pizza[i1] = top_symbol
+        break
+      i1 += 1
+            
+    print(lst_to_str(user_pizza))
+    toppingnum += 1
+  return user_pizza
+
 
 def generate_pizza(unlocked_toppings, pizza_template):
   # takes the lst of unlocked pizza toppings
