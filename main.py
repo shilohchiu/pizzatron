@@ -16,6 +16,7 @@ if __name__ == "__main__":
    # the user
    symbols_lst = []
 
+
    """fun.fun_type("----PIZZATRON: CS1210 FINAL PROJECT-----")
    fun.fun_type("Created by: Shiloh Chiu and Alex Boswell")
    while True:
@@ -59,6 +60,7 @@ if __name__ == "__main__":
                 "of your results to your computer. ")
    time.sleep(1)
    fun.fun_type("Okay, let's begin!")"""
+  
    # display LEVEL 1 and print the list of dictionaries
    # make a "level up" loop that generates a pizza for each level # (another loop)
    # while the score is above a certain #, after the score fails/the user fails to make a pizza 

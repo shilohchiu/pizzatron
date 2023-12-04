@@ -11,7 +11,9 @@ argument
 shows them the stats of their game when the user
 finishes the game
 ----------------level_up()----------------
-- allows more dictionary keys to be unlocked
+- allows more dictionary keys to be unlocked and prints
+what level you are currently on and also the dictionary keys and what they are represented as symbolically.
+- if level != 1 then the computer will tell you the number of points you had on each round (calculated in the score pizza function)
 ----------------generate_pizza()----------------
 - generates a new pizza + prints it out the screen
 asking the user to recreate it (uses the random 
@@ -25,7 +27,7 @@ game parameters
 # test
 
 import random
-import constants
+import constants as con
 import time
 import sys
 import math
@@ -41,8 +43,6 @@ def lst_to_str(lst1):
     for char1 in lst1:
         str += char1
     return str1
-
-
 
 def replace_blank(topping, pizza):
   lst = str_to_lst(pizza)
@@ -61,7 +61,7 @@ def replace_blank(topping, pizza):
   return new_pizza
 
 def input_pizza():
-    user_pizza = str_to_lst(constants.PIZZASTR)
+    user_pizza = str_to_lst(con.PIZZASTR)
     toppingnum = 1
     while '(_)' in lst_to_str(user_pizza):
         newtop = input("What will you make for topping #" + str(toppingnum) + "?")
@@ -108,9 +108,52 @@ def generate_pizza(unlocked_toppings, pizza_template):
 
   return new_pizza
 
-def level_up(level, toppings_dict, available_toppings):
+def level_up(level, available_toppings):
   level += 1
-  available_toppings.append(toppings_dict[level]['symbol'])
+  name = ''
+  symbol = ''
+  new_toppings = con.LEVELS[level]
+  # print(new_toppings)
+  for key, info in new_toppings.items():
+    # print(key)
+    # print(info)
+    if key == "name":
+      name = info
+    elif key == "symbol":
+      symbol = info
+    if name and symbol:
+      available_toppings[name] = symbol
+      name = ''
+      symbol = ''
+  fun_type("-------------------------------")
+  fun_type(f"WELCOME TO LEVEL {level} OF PIZZATRON")
+  fun_type("-------------------------------")
+  # print(available_toppings)
+  while True:
+    fun_type("Would you like to be reminded of which toppings are available? "\
+             "If you select n, only new unlocked toppings will be shown to you.")
+    show_all = input("(y/n)\n")
+    if show_all.upper() == "Y":
+      fun_type("Here is a list of all toppings you have unlocked.")
+      for name, symbol in toppings.items():
+        fun_type(f"The topping {name} is represented by the symbol {symbol}.")
+        break
+    elif show_all.upper() == "N":
+      for key, info in new_toppings.items():
+        if key == "name":
+          name = info
+        elif key == "symbol":
+          symbol = info
+        if name and symbol:
+          fun_type(f"The topping {name} is represented by the symbol {symbol}.")
+          name = ''
+          symbol = ''
+      break
+    else:
+      fun_type("Please only type y or n as inputs! ")
+
+# def y_n_input():
+
 
 def score_pizza(made_pizza):
   made_pizza_lst = str_to_lst(made_pizza)
@@ -126,5 +169,9 @@ def fun_type(str):
       n = 0
       sys.stdout.write("\n")
       sys.stdout.flush()
+  sys.stdout.write("\n")
   time.sleep(.75)
 
+if __name__ == "__main__":
+  toppings = {}
+  level_up(0, toppings)
