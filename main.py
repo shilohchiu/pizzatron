@@ -16,7 +16,8 @@ if __name__ == "__main__":
    # the user
    symbols_lst = []
 
-   fun.fun_type("----PIZZATRON: CS1210 FINAL PROJECT-----")
+
+   """fun.fun_type("----PIZZATRON: CS1210 FINAL PROJECT-----")
    fun.fun_type("Created by: Shiloh Chiu and Alex Boswell")
    while True:
       try:
@@ -58,7 +59,8 @@ if __name__ == "__main__":
    fun.fun_type("Once you reach the end of the game, we'll save a file "\
                 "of your results to your computer. ")
    time.sleep(1)
-   fun.fun_type("Okay, let's begin!")
+   fun.fun_type("Okay, let's begin!")"""
+  
    # display LEVEL 1 and print the list of dictionaries
    # make a "level up" loop that generates a pizza for each level # (another loop)
    # while the score is above a certain #, after the score fails/the user fails to make a pizza 
@@ -71,6 +73,11 @@ if __name__ == "__main__":
    fun.fun_type("The customer has ordered this pizza! ")
    print(target)
    # print(symbols_lst)
-
+   time.sleep(3)
+   # allow the user to attempt to recreate the pizza
+   made_pizza = fun.input_pizza(toppings)
    # generate a pizza
+   score = fun.score_pizza(target, made_pizza, picked_toppings)
+   print(score)
+   #score_pizza(target, made_pizza, picked_toppings):
    # each level has the same number of rounds as the level # 

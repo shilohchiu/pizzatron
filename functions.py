@@ -47,7 +47,6 @@ import random
 import constants as con
 import time
 import sys
-import math
 
 def str_to_lst(str):
   lst = []
@@ -58,7 +57,7 @@ def str_to_lst(str):
 def lst_to_str(lst1):
     str1 = ""
     for char1 in lst1:
-        str += char1
+        str1 += char1
     return str1
 
 def replace_blank(topping, pizza):
@@ -77,24 +76,23 @@ def replace_blank(topping, pizza):
 
   return new_pizza
 
-def topping_valid(inputted_topping):
+def topping_valid(userkey, topps):
   #tests if topping which user enters is a valid topping, called in input_pizza
-  topps = constants.TOPPINGS
-  cur_key = inputted_topping
+  cur_key = userkey
   while cur_key not in topps:
-    cur_key = input("Sorry, " + cur_key + 
-                    " is not a valid pizza topping! Type a valid topping here: ")
+    cur_key = input("Sorry, " + cur_key + " is not a valid pizza topping! Type a valid topping here: ")
   return topps.get(cur_key)
         
 
-def input_pizza():
+def input_pizza(toppings):
   #iterates through topping spaces and replaces space with topping input
-  user_pizza = str_to_lst(constants.PIZZASTR)
+  user_pizza = str_to_lst(con.PIZZASTR)
+
   toppingnum = 1
   print(lst_to_str(user_pizza))
   while '(_)' in lst_to_str(user_pizza):
     newtop = input("What will you make for topping #" + str(toppingnum) + "? ")
-    top_symbol = topping_valid(newtop)
+    top_symbol = topping_valid(newtop, toppings)
     i1 = 1
     for v in user_pizza:
       if user_pizza[i1] == '_' and user_pizza[i1-1] == '(':
@@ -186,6 +184,7 @@ def level_up(level, available_toppings):
         fun_type(f"The topping {name} is represented by the symbol {symbol}.")
       break
     elif show_all.upper() == "N":
+      fun_type("Here is a list of all of the new toppings you have unlocked.")
       for key, info in new_toppings.items():
         if key == "name":
           name = info
