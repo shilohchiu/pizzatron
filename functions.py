@@ -77,10 +77,10 @@ def replace_blank(topping, pizza):
 
   return new_pizza
 
-def topping_valid(userkey):
+def topping_valid(inputted_topping):
   #tests if topping which user enters is a valid topping, called in input_pizza
   topps = constants.TOPPINGS
-  cur_key = userkey
+  cur_key = inputted_topping
   while cur_key not in topps:
     cur_key = input("Sorry, " + cur_key + 
                     " is not a valid pizza topping! Type a valid topping here: ")
