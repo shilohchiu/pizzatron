@@ -24,6 +24,9 @@ LEVELS = {  1:
             {'name':'olive',
              'symbol': 'ʘ'}
                 }
+TOPPINGS = {'pepperoni' : 'e', 'anchovy' : '𓆟', 'mushroom' : '𓋼',
+            'meatball' : 'O', 'pineapple' : 'ߜ', 'bacon' : '฿',
+            'olive' : 'ʘ'}
 
 PIZZASTR = r"""
                      _____
