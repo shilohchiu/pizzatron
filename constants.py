@@ -24,9 +24,6 @@ LEVELS = {  1:
             {'name':'olive',
              'symbol': 'ʘ'}
                 }
-TOPPINGS = {'pepperoni' : 'e', 'anchovy' : '𓆟', 'mushroom' : '𓋼',
-            'meatball' : 'O', 'pineapple' : 'ߜ', 'bacon' : '฿',
-            'olive' : 'ʘ'}
 
 PIZZASTR = r"""
                      _____
@@ -75,3 +72,11 @@ CHEESEPIZZA = r"""
            `\__~~~o%%%%o%%%%%~  __/'
                `~--.._____,,--~'
 """
+
+CUSTOMER_INTRO = ["Guess what? We have a customer. ", 
+                  "Here comes a customer!!! ", 
+                  "A customer wants a pizza! "]
+
+CUSTOMER_ORDER = ["This is the pizza they ordered. ", 
+                  "They want a pizza like this: ", 
+                  "Hopefully you can make their pizza. "]

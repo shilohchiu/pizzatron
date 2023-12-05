@@ -6,20 +6,6 @@ and replaces the underscores in the second
 argument to have the topping.
 - returns the modified verson of the second
 argument
-----------------topping_valid()----------------
-- utilized in input_pizza() : takes a value and checks
-that it is present in a list of valid toppings in the 
-constants.py module
-- if a topping is not valid, it prompts the user to enter
-a valid topping until the topping can be found in constants
-module
-----------------input_pizza()----------------
-- a nullary function which allows user to build a 
-pizza with valid toppings
-- prints pizza in its current form with each topping
-addition
-- returns the user's inputted pizza as a list when
-function is complete
 -----------------write_stats()-----------------
 - writes a .txt file to the user's computer that
 shows them the stats of their game when the user
@@ -87,7 +73,6 @@ def topping_valid(userkey, topps):
 def input_pizza(toppings):
   #iterates through topping spaces and replaces space with topping input
   user_pizza = str_to_lst(con.PIZZASTR)
-
   toppingnum = 1
   print(lst_to_str(user_pizza))
   while '(_)' in lst_to_str(user_pizza):
@@ -98,7 +83,8 @@ def input_pizza(toppings):
       if user_pizza[i1] == '_' and user_pizza[i1-1] == '(':
         user_pizza[i1] = top_symbol
         break
-      i1 += 1        
+      i1 += 1
+            
     print(lst_to_str(user_pizza))
     toppingnum += 1
   return user_pizza
@@ -154,11 +140,17 @@ def generate_pizza(picked_toppings):
 def level_up(level, available_toppings):
   # available_toppings is the dictionary
   # in main toppings
-  level += 1
+
+  # this function will return true or false depending on
+  # if there was a key error; if there is a key error the user
+  # has won the game!
   name = ''
   symbol = ''
-  new_toppings = con.LEVELS[level]
-  # print(new_toppings)
+  try:
+    new_toppings = con.LEVELS[level]
+  except KeyError:
+    return True
+  # try except key error to tell 
   for key, info in new_toppings.items():
     # print(key)
     # print(info)
@@ -197,6 +189,7 @@ def level_up(level, available_toppings):
       break
     else:
       fun_type("Please only type y or n as inputs! ")
+    time.sleep(2)
 
 def score_pizza(target, made_pizza, picked_toppings):
   score = 5
