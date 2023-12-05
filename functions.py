@@ -45,18 +45,28 @@ def str_to_lst(str):
     lst.append(char)
   return lst
 
+
 def lst_to_str(lst1):
     str1 = ""
     for char1 in lst1:
         str1 += char1
     return str1
 
+
+def open_space(a, b, c):
+  # returns True if the set of characters
+  # is an an empty space in the pizza
+  if b == '_' and a == '(' and c == ')':
+    return True
+  else:
+    return False
+
+
 def replace_blank(topping, pizza):
   lst = str_to_lst(pizza)
 
   for c in range(len(lst)):
-    if lst[c] == '_' and \
-    lst[c - 1] == '(' and lst[c+1] == ')':
+    if open_space(lst[c-1] ,lst[c], lst[c+1]):
       lst[c] = topping
 
     new_pizza = ''
@@ -86,7 +96,7 @@ def input_pizza(toppings):
     top_symbol = topping_valid(newtop.lower(), toppings)
     i1 = 1
     for v in user_pizza:
-      if user_pizza[i1] == '_' and user_pizza[i1-1] == '(':
+      if open_space(user_pizza[i1-1], user_pizza[i1], user_pizza[i1+1]):
         user_pizza[i1] = top_symbol
         break
       i1 += 1
