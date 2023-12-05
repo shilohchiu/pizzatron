@@ -1,5 +1,7 @@
 """
 All the major functions our game relies on.
+
+GUIDE: 
 ----------------replace_blank()----------------
 - takes two arguments (topping and the pizza) 
 and replaces the underscores in the second 
@@ -27,7 +29,6 @@ generator)
 input and give a score out of 10 based on 
 game parameters
 """
-# test
 
 import random
 import constants as con
@@ -68,7 +69,6 @@ def topping_valid(userkey, topps):
   while cur_key not in topps:
     cur_key = input("Sorry, " + cur_key + " is not a valid pizza topping! Type a valid topping here: ")
   return topps.get(cur_key)
-        
 
 def input_pizza(toppings):
   #iterates through topping spaces and replaces space with topping input
@@ -132,10 +132,6 @@ def generate_pizza(picked_toppings):
       picked_toppings.pop(i)
   
   return new_pizza
-# i split generate_pizza() into two functions:
-# pick_toppings and generate_pizza; this way 
-# we can keep a list of chosen toppings separate
-# and make checking the returned pizza way easier
 
 def level_up(level, available_toppings):
   # available_toppings is the dictionary
@@ -190,6 +186,8 @@ def level_up(level, available_toppings):
     else:
       fun_type("Please only type y or n as inputs! ")
     time.sleep(2)
+# determines if the user has won
+# should return true or false
 
 def score_pizza(target, made_pizza, picked_toppings):
   score = 5
@@ -227,7 +225,12 @@ def fun_type(str):
   sys.stdout.write("\n")
   time.sleep(.75)
 
-"""def loading():
+# def write_stats(): <-- will write an output file
+
+"""
+  figure out how to make a spinning wheel/
+  loading symbol last!
+  def loading():
   str = "Loading"
   sys.stdout.write(str)
   for char in "...":
