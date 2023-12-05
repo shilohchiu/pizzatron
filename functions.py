@@ -34,6 +34,10 @@ import random
 import constants as con
 import time
 import sys
+import threading
+
+# also figure out a timer
+# colors
 
 def str_to_lst(str):
   lst = []
@@ -64,14 +68,16 @@ def replace_blank(topping, pizza):
   return new_pizza
 
 def topping_valid(userkey, topps):
-  #tests if topping which user enters is a valid topping, called in input_pizza
+  # tests if topping which user enters is a 
+  # valid topping, called in input_pizza
   cur_key = userkey
   while cur_key not in topps:
     cur_key = input("Sorry, " + cur_key + " is not a valid pizza topping! Type a valid topping here: ")
   return topps.get(cur_key)
 
 def input_pizza(toppings):
-  #iterates through topping spaces and replaces space with topping input
+  # iterates through topping spaces and 
+  # replaces space with topping input
   user_pizza = str_to_lst(con.PIZZASTR)
   toppingnum = 1
   print(lst_to_str(user_pizza))
@@ -133,13 +139,15 @@ def generate_pizza(picked_toppings):
   
   return new_pizza
 
+
 def level_up(level, available_toppings):
   # available_toppings is the dictionary
-  # in main toppings
+  # in main : toppings
 
   # this function will return true or false depending on
   # if there was a key error; if there is a key error the user
   # has won the game!
+
   name = ''
   symbol = ''
   try:
@@ -170,9 +178,9 @@ def level_up(level, available_toppings):
       fun_type("Here is a list of all toppings you have unlocked.")
       for name, symbol in available_toppings.items():
         fun_type(f"The topping {name} is represented by the symbol {symbol}.")
-      break
+      return False
     elif show_all.upper() == "N":
-      fun_type("Here is a list of all of the new toppings you have unlocked.")
+      fun_type("Here is a list of the new toppings you have unlocked.")
       for key, info in new_toppings.items():
         if key == "name":
           name = info
@@ -182,7 +190,7 @@ def level_up(level, available_toppings):
           fun_type(f"The topping {name} is represented by the symbol {symbol}.")
           name = ''
           symbol = ''
-      break
+      return False
     else:
       fun_type("Please only type y or n as inputs! ")
     time.sleep(2)
@@ -204,12 +212,13 @@ def score_pizza(target, made_pizza, picked_toppings):
     actual = made_pizza_lst.count(topping)
     score -= abs(1 - ( actual / expected ))
   return score
-  # count the toppings and return a score based on how close it is to the actual
-  # write code that checks for if there is a specifc
-  # plan: make it so that the distribution of pizza toppings is accurate, 
-  # as in it doesn't need to be exact, but the closer the number of a certain 
-  # topping it is to the actual # the higher score the user will receive.
-  # use the count() method
+  # count the toppings and return a score based on how 
+  # close it is to the actual write code that checks 
+  # for if there is a specifc plan: make it so that 
+  # the distribution of pizza toppings is accurate, 
+  # as in it doesn't need to be exact, but the closer 
+  # the number of a certain topping it is to the actual
+  # # the higher score the user will receive.
 
 def fun_type(str):
   n = 0
@@ -225,7 +234,21 @@ def fun_type(str):
   sys.stdout.write("\n")
   time.sleep(.75)
 
-# def write_stats(): <-- will write an output file
+def write_stats(last_made_pizza, win_lose_quit, total_score): # <-- will write an output file # check if w is create or just edit
+  
+  with open("pizzatron.txt", "w") as f:
+    for line in con.STATS:
+      f.write(line)
+    f.write(f"YOU {win_lose_quit.upper()} THIS GAME!\n")
+    f.write(f"Your score was {total_score}.\n")
+    if last_made_pizza:
+      f.write("This is your last made pizza:\n")
+      for char in last_made_pizza:
+        f.write(char)
+    else:
+      f.write("You didn't make any pizzas.")
+    f.write("\nTHANK YOU FOR PLAYING PIZZATRON")
+  # print(f)
 
 """
   figure out how to make a spinning wheel/

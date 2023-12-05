@@ -14,8 +14,7 @@ ASCII art. We aimed to create a game that makes the most out of the simple
 building blocks and modules that we worked with in CS1210.
 As the player “levels up”, more dictionary keys are unlocked.
 At the end, the program outputs a .txt file that gives the user some 
-of their stats, including 
-the user’s score and the last pizza they made.
+of their stats, including the user’s score and the last pizza they made.
 
 ----- MODULES AND DEPENDENCIES -----
 
@@ -105,7 +104,8 @@ We encountered some problems printing the ASCII art and wanted to print the stri
 individually escaping each character.
 - https://www.digitalocean.com/community/tutorials/python-raw-string 
 
-
+Sources referenced in displaying a timer.
+- https://www.youtube.com/watch?v=Mp6YMt8MSAU
 - https://stackoverflow.com/questions/5852981/python-how-do-i-display-a-timer-in-a-terminal 
 
 A brief introduction to the time module.

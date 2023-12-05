@@ -65,3 +65,10 @@ CUSTOMER_INTRO = ["Guess what? We have a customer. ",
 CUSTOMER_ORDER = ["This is the pizza they ordered. ", 
                   "They want a pizza like this: ", 
                   "Hopefully you can make their pizza. "]
+
+STATS = ["----------------------------\n",
+         "THANKS FOR PLAYING PIZZATRON\n",
+         "----------------------------\n"
+         
+    
+]
