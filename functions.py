@@ -215,3 +215,17 @@ def write_stats(last_made_pizza, win_lose_quit, total_score):
     else:
       f.write("You didn't make any pizzas.")
     f.write("\nTHANK YOU FOR PLAYING PIZZATRON")
+
+def loading(n):
+  for _ in range(n):
+    for i, char in enumerate(r"""\|/-\|/-"""):
+      sys.stdout.write(char)
+      n += 1
+      sys.stdout.flush()
+      sys.stdout.write("\b")
+      time.sleep(.1)
+  sys.stdout.write("\n")
+  time.sleep(.75)
+
+if __name__ == "__main__":
+  loading(10)

@@ -17,9 +17,15 @@ the user has to make. As the player “levels up”, more toppings are unlocked,
 and the possibility to generate a more complicated pizza increases. At the 
 end, the program outputs a .txt file that gives the user some of their stats, 
 including the user’s score, the last pizza they made, and whether they won or lost.
+We tried to add little things to spice up our project a little, like 
+using a text engine or randomly generated messages from a constant 
+list of messages.
 
 ----- MODULES AND DEPENDENCIES -----
-Our game only runs on modules that come in the python package.
+Our game only runs on modules that come in the Python package.
+- time
+- random
+- sys
  
 ----- INSTRUCTIONS -----
 (for running and testing the program)
@@ -124,8 +130,8 @@ using GitHub collaboratively, but after this project was a good introduction to 
 and we became familiar with pushing, pulling, and resolving conflicts. All push/pull 
 commit history is available via our GitHub link! We both did work in creating/editing/revising 
 functions. We talked through many proposals for how we wanted our game to work. Some things 
-we considered but did not make the final cut were making the text colored, having an option to quit, 
-a timer, and a loading bar.
+we considered but did not make the final cut were making the text colored, 
+having an option to quit, a timer, and a loading bar.
 
 * ALEX *
     - constants.py (building the topping dictionary, pizza string)
