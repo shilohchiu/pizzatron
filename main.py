@@ -21,7 +21,8 @@ if __name__ == "__main__":
    fun.fun_type("Created by: Shiloh Chiu and Alex Boswell")
    while True:
       try:
-         name = input("Hello! What's your name?\n")
+         fun.fun_type("Hello! What's your name?")
+         name = input("")
          break
       except ValueError:
          fun.fun_type("That's not a valid name!")

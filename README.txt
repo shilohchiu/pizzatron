@@ -41,7 +41,8 @@ you lose. If you successfully make all pizzas for every level (10 total levels) 
 
 As you level up, the possibility of getting a more complicated pizza will increase, but 
 it is still possible to get a less complicated pizza at a higher level (i.e, a pizza 
-with one kind of topping at level 8).
+with one kind of topping at level 8). This means the first two pizzas should be cheese 
+pizzas because the only topping unlocked in level 1 is cheese.
 
 to lose:
 - To lose, you simply have to pass level one and then create "incorrect pizzas" 
