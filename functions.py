@@ -34,10 +34,6 @@ import random
 import constants as con
 import time
 import sys
-import threading
-
-# also figure out a timer
-# colors
 
 def str_to_lst(str):
   lst = []
@@ -68,22 +64,18 @@ def replace_blank(topping, pizza):
   return new_pizza
 
 def topping_valid(userkey, topps):
-  # tests if topping which user enters is a 
-  # valid topping, called in input_pizza
   cur_key = userkey
   while cur_key not in topps:
     cur_key = input("Sorry, " + cur_key + " is not a valid pizza topping! Type a valid topping here: ")
   return topps.get(cur_key)
 
 def input_pizza(toppings):
-  # iterates through topping spaces and 
-  # replaces space with topping input
   user_pizza = str_to_lst(con.PIZZASTR)
   toppingnum = 1
   print(lst_to_str(user_pizza))
   while '(_)' in lst_to_str(user_pizza):
     newtop = input("What will you make for topping #" + str(toppingnum) + "? ")
-    top_symbol = topping_valid(newtop, toppings)
+    top_symbol = topping_valid(newtop.lower(), toppings)
     i1 = 1
     for v in user_pizza:
       if user_pizza[i1] == '_' and user_pizza[i1-1] == '(':
@@ -96,14 +88,11 @@ def input_pizza(toppings):
   return user_pizza
 
 def add_new_symbols(toppings, symbols):
-  # toppings is the dict
-  # toppings_symbols is the list
   for symbol in toppings.values():
     if symbol not in symbols:
       symbols.append(symbol)
 
 def pick_toppings(unlocked_toppings):
-  # working purely with symbols
   picked_toppings = []
   for _ in range(random.randint(1,len(unlocked_toppings))):
     i = random.choice(unlocked_toppings)
@@ -139,25 +128,14 @@ def generate_pizza(picked_toppings):
   
   return new_pizza
 
-
 def level_up(level, available_toppings):
-  # available_toppings is the dictionary
-  # in main : toppings
-
-  # this function will return true or false depending on
-  # if there was a key error; if there is a key error the user
-  # has won the game!
-
   name = ''
   symbol = ''
   try:
     new_toppings = con.LEVELS[level]
   except KeyError:
     return True
-  # try except key error to tell 
   for key, info in new_toppings.items():
-    # print(key)
-    # print(info)
     if key == "name":
       name = info
     elif key == "symbol":
@@ -169,7 +147,6 @@ def level_up(level, available_toppings):
   fun_type("-------------------------------")
   fun_type(f"WELCOME TO LEVEL {level} OF PIZZATRON")
   fun_type("-------------------------------")
-  # print(available_toppings)
   while True:
     fun_type("Would you like to be reminded of which toppings are available? "\
              "If you select n, only new unlocked toppings will be shown to you.")
@@ -194,8 +171,6 @@ def level_up(level, available_toppings):
     else:
       fun_type("Please only type y or n as inputs! ")
     time.sleep(2)
-# determines if the user has won
-# should return true or false
 
 def score_pizza(target, made_pizza, picked_toppings):
   score = 5
@@ -212,13 +187,6 @@ def score_pizza(target, made_pizza, picked_toppings):
     actual = made_pizza_lst.count(topping)
     score -= abs(1 - ( actual / expected ))
   return score
-  # count the toppings and return a score based on how 
-  # close it is to the actual write code that checks 
-  # for if there is a specifc plan: make it so that 
-  # the distribution of pizza toppings is accurate, 
-  # as in it doesn't need to be exact, but the closer 
-  # the number of a certain topping it is to the actual
-  # # the higher score the user will receive.
 
 def fun_type(str):
   n = 0
@@ -234,8 +202,7 @@ def fun_type(str):
   sys.stdout.write("\n")
   time.sleep(.75)
 
-def write_stats(last_made_pizza, win_lose_quit, total_score): # <-- will write an output file # check if w is create or just edit
-  
+def write_stats(last_made_pizza, win_lose_quit, total_score):
   with open("pizzatron.txt", "w") as f:
     for line in con.STATS:
       f.write(line)
@@ -248,23 +215,3 @@ def write_stats(last_made_pizza, win_lose_quit, total_score): # <-- will write a
     else:
       f.write("You didn't make any pizzas.")
     f.write("\nTHANK YOU FOR PLAYING PIZZATRON")
-  # print(f)
-
-"""
-  figure out how to make a spinning wheel/
-  loading symbol last!
-  def loading():
-  str = "Loading"
-  sys.stdout.write(str)
-  for char in "...":
-    sys.stdout.write(char)
-    sys.stdout.flush()
-    time.sleep(.125)
-  for i, char in enumerate("..."):
-    sys.stdout.write((i + 1) * "\b ")
-    sys.stdout.flush()
-    time.sleep(.125)
-  time.sleep(.75)"""
-
-# if __name__ == "__main__":
-  # loading()

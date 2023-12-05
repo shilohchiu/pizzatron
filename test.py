@@ -1,6 +1,6 @@
 """testing functions individually"""
 import functions as fun
-import threading
+# import threading
 import time
 import random
 import constants as con
