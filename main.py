@@ -67,69 +67,67 @@ if __name__ == "__main__":
    # make a "level up" loop that generates a pizza for each level # (another loop)
    # while the score is above a certain #, after the score fails/the user fails to make a pizza 
    # the loop ends
-while True:
-   if total_score > level * 4.0 or level == 0:
-      lose = ''
-      quit_ = ''
-      level += 1
-      win = fun.level_up(level, toppings)
-      # print(win)
-      if win == False:
-         # print(level)
-         """if level < 5:
-            rounds = level
-         else:
-            rounds = 5"""
-         
-         rounds = 2
+   while True:
+      if total_score > level * 4.0 or level == 0:
+         lose = ''
+         quit_ = ''
+         level += 1
+         win = fun.level_up(level, toppings)
+         # print(win)
+         if win == False:
+            # print(level)
+            """if level < 5:
+               rounds = level
+            else:
+               rounds = 5"""
             
-         for _ in range(rounds):
-            fun.add_new_symbols(toppings, symbols_lst)
-            picked_toppings = fun.pick_toppings(symbols_lst)
+            rounds = 2
+               
+            for _ in range(rounds):
+               fun.add_new_symbols(toppings, symbols_lst)
+               picked_toppings = fun.pick_toppings(symbols_lst)
 
-            target = fun.generate_pizza(picked_toppings)
-            fun.fun_type("...")
-            fun.fun_type(random.choice(con.CUSTOMER_INTRO))
-            fun.fun_type(random.choice(con.CUSTOMER_ORDER))
-            print(target)
-            time.sleep(3)
-            # allow the user to attempt to recreate the pizza
-            fun.fun_type("Making the pizza dough...")
-            time.sleep(.25)
-            made_pizza = fun.input_pizza(toppings)
-            # generate a pizza
-            score = fun.score_pizza(target, made_pizza, picked_toppings)
-            total_score += score
-            print(score)
-            """if score < 4.5:
-               lose = True 
-               break"""
+               target = fun.generate_pizza(picked_toppings)
+               fun.fun_type("...")
+               fun.fun_type(random.choice(con.CUSTOMER_INTRO))
+               fun.fun_type(random.choice(con.CUSTOMER_ORDER))
+               print(target)
+               time.sleep(3)
+               # allow the user to attempt to recreate the pizza
+               fun.fun_type("Making the pizza dough...")
+               time.sleep(.25)
+               made_pizza = fun.input_pizza(toppings)
+               # generate a pizza
+               score = fun.score_pizza(target, made_pizza, picked_toppings)
+               total_score += score
+               print(score)
+               """if score < 4.5:
+                  lose = True 
+                  break"""
+         else:
+            break # win == True
       else:
-         break # win == True
-   else:
-      lose = True
-      break
+         lose = True
+         break
 
-if lose == True:
-   fun.fun_type("Sorry, looks like you lost. ")
-   fun.fun_type("Printing a file of your game stats to your current"\
-                " directory! This file is named pizzatron.txt")
-   fun.fun_type("Quitting the game. Thanks for playing! ")
-   time.sleep(1)
-   fun.write_stats(made_pizza,"lost", total_score)
-elif win == True:
-   fun.fun_type("CONGRATULATIONS! You have completed all levels of Pizzatron.")
-   fun.fun_type("Printing a file of your game stats to your current"\
-                " directory! This file is named pizzatron.txt")
-   fun.fun_type("Quitting the game. Thanks for playing! ")
-   time.sleep(1)
-   fun.write_stats(made_pizza,"won", total_score)
-elif quit_ == True:
-   fun.fun_type("Aw, looks like you chose to quit.")
-   fun.fun_type("Printing a file of your game stats to your current"\
-                " directory! This file is named pizzatron.txt")
-   fun.fun_type("Quitting the game. Thanks for playing! ")
-   time.sleep(1)
-   fun.write_stats(made_pizza,"quit", total_score)
-else:
-   print("restarting the loop! ")
+   if lose == True:
+      fun.fun_type("Sorry, looks like you lost. ")
+      fun.fun_type("Printing a file of your game stats to your current"\
+                  " directory! This file is named pizzatron.txt")
+      fun.fun_type("Quitting the game. Thanks for playing! ")
+      time.sleep(1)
+      fun.write_stats(made_pizza,"lost", total_score)
+   elif win == True:
+      fun.fun_type("CONGRATULATIONS! You have completed all levels of Pizzatron.")
+      fun.fun_type("Printing a file of your game stats to your current"\
+                  " directory! This file is named pizzatron.txt")
+      fun.fun_type("Quitting the game. Thanks for playing! ")
+      time.sleep(1)
+      fun.write_stats(made_pizza,"won", total_score)
+   """elif quit_ == True:
+      fun.fun_type("Aw, looks like you chose to quit.")
+      fun.fun_type("Printing a file of your game stats to your current"\
+                  " directory! This file is named pizzatron.txt")
+      fun.fun_type("Quitting the game. Thanks for playing! ")
+      time.sleep(1)
+      fun.write_stats(made_pizza,"quit", total_score)"""

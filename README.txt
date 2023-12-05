@@ -16,7 +16,7 @@ The difficulty of the game increases based on the complexity of pizza that
 the user has to make. As the player “levels up”, more toppings are unlocked, 
 and the possibility to generate a more complicated pizza increases. At the 
 end, the program outputs a .txt file that gives the user some of their stats, 
-including the user’s score, the last pizza they made, and whether they won, lost, or quit.
+including the user’s score, the last pizza they made, and whether they won or lost.
 
 ----- MODULES AND DEPENDENCIES -----
 
@@ -55,8 +55,6 @@ to win:
 as possible. To do this, make all the pizzas that are given to you to the best of 
 your ability. After the tenth level, the program should tell you that you have won 
 and write a .txt file that tells you your stats.
-to quit:
--
 --- HOW WE TESTED OUR PROGRAM ---
 To test our program, we relied on the line of code “if __name__ == 
 “__main__” and the fact that we split our program into multiple 
@@ -94,6 +92,7 @@ was printing to the terminal, this value can accumulate without
 the user being conscious of it. For example, if I type "y" into the command 
 line but I accidentally hit the keyboard while the computer was printing 
 something, I may unknowingly submit a different value to the computer.
+Please refrain from typing on the keyboard unless you intend to input!
 Although this is not a coding defect per se, we did have an issue of 
 the display of the ASCII art. Sometimes the output pizza would appear 
 to be “jumbled” because the spacing of newly input characters was 
