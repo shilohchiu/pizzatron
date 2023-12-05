@@ -58,34 +58,45 @@ different than the default string supplied; the different lines of characters
 would not be lined up anymore.
 
 ----- WORK DISTRIBUTION -----
-Our work was mostly done asynchronously. We decided divide the work by working on individual functions 
-separately, but talked through the code with one another to ensure that neither of us would become 
-confused with any conventions that we were using. For example, an issue We took advantage of the fact that GitHub allows you 
-to resolve conflicts and save different version histories. When we did work in person together,
-we did a lot of brainstorming ideas, pair programming, and rubber-ducking. We have multiple 
-different python files that are imported into the actual 
-working game. This allowed us to solve problems and issues faster and improve our 
-code more efficiently. We did a good job at talking through our code and making sure there were 
-no problems, and if we couldn’t figure out how to code something, we talked through what we were 
+Our work was mostly done asynchronously. We decided divide the work by working 
+on individual functions separately, but talked through the code with one 
+another to ensure that neither of us would become confused with any conventions 
+that we were using. For example, an issue We took advantage of the fact that 
+GitHub allows you to resolve conflicts and save different version histories. 
+When we did work in person together, we did a lot of brainstorming ideas, 
+pair programming, and rubber-ducking. We have multiple different python files 
+that are imported into the actual working game. This allowed us to solve 
+problems and issues faster and improve our code more efficiently. We did a 
+good job at talking through our code and making sure there were no problems, 
+and if we couldn’t figure out how to code something, we talked through what we were 
 trying to achieve and the other person would try and implement it into our program.
-We ran into some issues, such as trying to print things with special characters, but we quickly 
-solved this issue using Stack Overflow and figuring out how to print the ASCII art without manually 
-escaping each special character in the code. At first, we tried using the collaborative coding 
-interface Replit, but we soon ran into problems using Replit (lag caused by cloud issues due to 
-the collaborative editing process). We quickly changed plans and decided to pair-program on one 
-computer within a local IDE. Eventually, we moved to GitHub to allow for online collaboration. 
-This was very useful – neither of us had a very good understanding of using GitHub collaboratively, 
-but after this project was a good introduction to how it works, and we became familiar with pushing, 
-pulling, and resolving conflicts. All push/pull commit history is available via our GitHub link!
+We ran into some issues, such as trying to print things with special characters, but 
+we quickly solved this issue using Stack Overflow and figuring out how to print 
+the ASCII art without manually escaping each special character in the code. At first, 
+we tried using the collaborative coding interface Replit, but we soon ran into 
+problems using Replit (lag caused by cloud issues due to the collaborative editing 
+process). We quickly changed plans and decided to pair-program on one computer 
+within a local IDE. Eventually, we moved to GitHub to allow for online collaboration. 
+This was very useful – neither of us had a very good understanding of using GitHub 
+collaboratively, but after this project was a good introduction to how it works, 
+and we became familiar with pushing, pulling, and resolving conflicts. All push/pull 
+commit history is available via our GitHub link! We both did work in editing/revising 
+functions.
 
 * ALEX *
-    constants.py (building the topping dictionary, pizza string)
-    functions.py (input_pizza(), replace_blank(), lst_to_str())
+    - constants.py (building the topping dictionary, pizza string)
+    - functions.py (input_pizza(), replace_blank(), lst_to_str(),
+                    topping_valid())
+    - testing + editing
 * SHILOH *
-    constants.py (building the topping dictionary)
-    wrote README.txt
-    main.py (game intro, implementing functions)
-    functions.py (generate_pizza(), str_to_lst(), fun_type(), score_pizza(), level_up(), write_stats())
+    - constants.py (building the topping dictionary, computer
+                    generated output strings)
+    - wrote README.txt
+    - main.py (game intro, implementing functions, body of game)
+    - functions.py (generate_pizza(), str_to_lst(), 
+      fun_type(), score_pizza(), level_up(), write_stats(),
+      add_new_symbols(), pick_toppings())
+    - testing + editing
 ----- CITATIONS -----
 We were interested in putting color in the Python terminal to spice things up.
 - https://www.javatpoint.com/how-to-print-colored-text-in-python
@@ -105,3 +116,7 @@ I (Shiloh) used this source to make the text engine. I refined the code to make 
 
 Alex got the blank pizza ASCII art featured in our program from this site.
 - https://ascii.co.uk/art/pizza
+
+Hieroglyphics/copy and paste ASCII characters:
+- https://en.wikipedia.org/wiki/Template:Unicode_chart_Egyptian_Hieroglyphs
+- https://copypastecharacter.com/all-characters
