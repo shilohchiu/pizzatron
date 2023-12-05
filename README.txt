@@ -5,9 +5,16 @@ GITHUB REPO/VERSION HISTORY:
 -https://github.com/shilohchiu/pizzatron
 
 ----- DESCRIPTION -----
-Our program is inspired by the club penguin mini-game, Pizzatron, where the player is tasked with making a pizza based on a computer generated pizza. The player is scored on the pizza's accuracy. To honor the fact that our coursework this semester was done fully within Python’s command line, our program runs entirely in the command line as well, and visualized using ASCII art. We aimed to create a game that makes the most out of the simple building blocks and modules that we worked with in CS1210.
+Our program is inspired by the club penguin mini-game, Pizzatron, where 
+the player is tasked with making a pizza based on a computer generated pizza. 
+The player is scored on the pizza's accuracy. To honor the fact that our 
+coursework this semester was done fully within Python’s command line, our 
+program runs entirely in the command line as well, and visualized using 
+ASCII art. We aimed to create a game that makes the most out of the simple 
+building blocks and modules that we worked with in CS1210.
 As the player “levels up”, more dictionary keys are unlocked.
-At the end, the program outputs a .txt file that gives the user some of their stats, including 
+At the end, the program outputs a .txt file that gives the user some 
+of their stats, including 
 the user’s score and the last pizza they made.
 
 ----- MODULES AND DEPENDENCIES -----
@@ -15,24 +22,39 @@ the user’s score and the last pizza they made.
  
 ----- INSTRUCTIONS -----
 (for running and testing the program)
-The game itself is run in the file main.py. The game should be able to run all the way to its 
+The game itself is run in the file main.py. The game should be able to 
+run all the way to its 
 end without encountering any issues.
 
 --- HOW WE TESTED OUR PROGRAM ---
-To test our program, we relied on the line of code “if __name__ == “__main__” and the fact that 
-we split our program into multiple different files. Essentially, our functions are separate from 
-the main file and are instead imported into the main file. This allowed us to individually test 
-each function in functions.py without running the entire program. For example, while working 
-on our text engine, it would have been tedious to rerun the program in main.py to check if the 
-speed the text engine was working was to our liking. Instead, we found it much easier to test 
-the function itself in main.py to give it example strings that we predicted to be problematic 
-without running the whole program in main.py. This allowed us to fix issues before they occurred, 
-avoiding any nasty surprises while we were trying to code the main body of the program.
+To test our program, we relied on the line of code “if __name__ == 
+“__main__” and the fact that we split our program into multiple 
+different files. Essentially, our functions are separate from 
+the main file and are instead imported into the main file. 
+This allowed us to individually test each function in functions.py 
+without running the entire program. For example, while working 
+on our text engine, it would have been tedious to rerun the program 
+in main.py to check if the speed the text engine was working was 
+to our liking. Instead, we found it much easier to test 
+the function itself in main.py to give it example strings that 
+we predicted to be problematic without running the whole program 
+in main.py. This allowed us to fix issues before they occurred, 
+avoiding any nasty surprises while we were trying to code the 
+main body of the program.
 
 ----- DEFECT LOG -----
-Although this is not a coding defect per se, we did have an issue of the display of the ASCII 
-art. Sometimes the output pizza would appear to be “jumbled” because the spacing of newly 
-input characters was different than the default string supplied; the different lines of characters 
+Something that we unfortunately did not account for is that it 
+is possible for the user to continue typing to the command line. 
+This can mess up the input values, which is why the code validation 
+appears to be faulty. If the user typed something while the computer 
+was printing to the terminal, this value can accumulate without 
+the user being conscious of it. For example, if I type "y" into the command 
+line but I accidentally hit the keyboard while the computer was printing 
+something, I may unknowingly submit a different value to the computer.
+Although this is not a coding defect per se, we did have an issue of 
+the display of the ASCII art. Sometimes the output pizza would appear 
+to be “jumbled” because the spacing of newly input characters was 
+different than the default string supplied; the different lines of characters 
 would not be lined up anymore.
 
 ----- WORK DISTRIBUTION -----

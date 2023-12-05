@@ -5,6 +5,7 @@ Shiloh Chiu and Alex Boswell
 
 import functions as fun
 import time
+import random
 import constants as con
 
 if __name__ == "__main__":
@@ -16,8 +17,7 @@ if __name__ == "__main__":
    # the user
    symbols_lst = []
 
-
-   """fun.fun_type("----PIZZATRON: CS1210 FINAL PROJECT-----")
+   fun.fun_type("----PIZZATRON: CS1210 FINAL PROJECT-----")
    fun.fun_type("Created by: Shiloh Chiu and Alex Boswell")
    while True:
       try:
@@ -27,8 +27,9 @@ if __name__ == "__main__":
          fun.fun_type("That's not a valid name!")
    name = name.capitalize()
    fun.fun_type(f"Welcome to Pizzatron, {name}!")
+   fun.fun_type(f"Are you ready to make some pizzas, {name}?")
    while True:
-      answer = input(f"Are you ready to make some pizzas, {name}? (y/n)\n")
+      answer = input("(y/n)\n")
       if answer.upper() == 'Y':
          fun.fun_type(f"Great! Love your enthusiasm, "\
                       f"{name}. Let's get started.")
@@ -58,26 +59,43 @@ if __name__ == "__main__":
                 "and tell you how accurate it is.")
    fun.fun_type("Once you reach the end of the game, we'll save a file "\
                 "of your results to your computer. ")
+   fun.fun_type("You might wanna make your terminal full screen for this.")
    time.sleep(1)
-   fun.fun_type("Okay, let's begin!")"""
-  
+   fun.fun_type("Okay, let's begin!")
    # display LEVEL 1 and print the list of dictionaries
    # make a "level up" loop that generates a pizza for each level # (another loop)
    # while the score is above a certain #, after the score fails/the user fails to make a pizza 
    # the loop ends
-   fun.level_up(level, toppings)
-   fun.add_new_symbols(toppings, symbols_lst)
-   picked_toppings = fun.pick_toppings(symbols_lst)
+   while True:
+      if total_score > level * 3.5 or level == 0:
+         level += 1
+         win = fun.level_up(level, toppings)
+         if win != True:
+            for _ in range(1,level):
+               fun.add_new_symbols(toppings, symbols_lst)
+               picked_toppings = fun.pick_toppings(symbols_lst)
 
-   target = fun.generate_pizza(picked_toppings)
-   fun.fun_type("The customer has ordered this pizza! ")
-   print(target)
-   # print(symbols_lst)
-   time.sleep(3)
-   # allow the user to attempt to recreate the pizza
-   made_pizza = fun.input_pizza(toppings)
-   # generate a pizza
-   score = fun.score_pizza(target, made_pizza, picked_toppings)
-   print(score)
-   #score_pizza(target, made_pizza, picked_toppings):
-   # each level has the same number of rounds as the level # 
+               target = fun.generate_pizza(picked_toppings)
+               fun.fun_type("...")
+               fun.fun_type(random.choice(con.CUSTOMER_INTRO))
+               fun.fun_type(random.choice(con.CUSTOMER_ORDER))
+               print(target)
+               time.sleep(3)
+               # allow the user to attempt to recreate the pizza
+               fun.fun_type("Making the pizza dough...")
+               time.sleep(.25)
+               made_pizza = fun.input_pizza(toppings)
+               # generate a pizza
+               score = fun.score_pizza(target, made_pizza, picked_toppings)
+
+               print(score)
+               if score < 4.5:
+                  break
+      else:
+         lose = 1
+"""   if lose:
+      
+   elif win == True:
+      
+   else:
+      print("Error in code! ")"""
