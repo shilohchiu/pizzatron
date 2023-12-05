@@ -17,7 +17,7 @@ if __name__ == "__main__":
    # the user
    symbols_lst = [] # stores the list of unlocked topping symbols<-- 
 
-"""fun.fun_type("----PIZZATRON: CS1210 FINAL PROJECT-----")
+   fun.fun_type("----PIZZATRON: CS1210 FINAL PROJECT-----")
    fun.fun_type("Created by: Shiloh Chiu and Alex Boswell")
    while True:
       try:
@@ -43,9 +43,9 @@ if __name__ == "__main__":
    fun.fun_type("Okay, let's go over the rules of how to make the pizza.")
    fun.fun_type("As you level up, you get to unlock new ingredients! "\
                 "It's up to you to remember what ingredients are on "\
-                "the pizza and to put all the toppings on the pizza."\
-                  " The more pizzas you make, "\
-                "the more complicated the pizzas get! ")
+                "the pizza and to put all the toppings on the pizza.")
+   fun.fun_type("The more pizza toppings you unlock, "\
+                "the greater the possibility of complicated pizzas.")
    fun.fun_type("At the beginning of each level, you'll be shown a key of "\
                 "the toppings and what each topping is represented as.")
    fun.fun_type("At the beginning of each round, the "\
@@ -61,7 +61,7 @@ if __name__ == "__main__":
                 "of your results to your computer.")
    fun.fun_type("You might wanna make your terminal full screen for this.")
    time.sleep(1)
-   fun.fun_type("Okay, let's begin!")"""
+   fun.fun_type("Okay, let's begin!")
    # display LEVEL 1 and print the list of dictionaries
    # make a "level up" loop that generates a pizza for each level # (another loop)
    # while the score is above a certain #, after the score fails/the user fails to make a pizza 
@@ -75,10 +75,12 @@ while True:
       # print(win)
       if win == False:
          # print(level)
-         if level < 5:
+         """if level < 5:
             rounds = level
          else:
-            rounds = 5
+            rounds = 5"""
+         
+         rounds = 2
             
          for _ in range(rounds):
             fun.add_new_symbols(toppings, symbols_lst)
