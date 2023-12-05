@@ -70,6 +70,11 @@ def replace_blank(topping, pizza):
 def topping_valid(userkey, topps):
   # tests if topping which user enters is a 
   # valid topping, called in input_pizza
+  if userkey.upper() == 'Q':
+    # quit functionality
+    confirm = input("Are you sure you'd like to quit Pizzatron? (\'y\' to confirm) ")
+    if confirm.upper() == 'Y':
+      exit()
   cur_key = userkey
   while cur_key not in topps:
     cur_key = input("Sorry, " + cur_key + " is not a valid pizza topping! Type a valid topping here: ")
