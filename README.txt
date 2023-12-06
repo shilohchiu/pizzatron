@@ -21,6 +21,7 @@ We tried to add little things to spice up our project a little, like
 using a text engine or randomly generated messages from a constant 
 list of messages.
 
+
 ----- MODULES AND DEPENDENCIES -----
 Our game only runs on modules that come in the Python package.
 - time
@@ -44,6 +45,7 @@ The score of your pizza is based on the ratio of correct toppings, if you missed
 any given toppings, or if you added toppings not ordered by the customer. Once 
 you fail to meet the calculated number of points expected to pass to a certain level, 
 you lose. If you successfully make all pizzas for every level (10 total levels) you will win.
+
 
 As you level up, the possibility of getting a more complicated pizza will increase, but 
 it is still possible to get a less complicated pizza at a higher level (i.e, a pizza 
@@ -132,6 +134,7 @@ commit history is available via our GitHub link! We both did work in creating/ed
 functions. We talked through many proposals for how we wanted our game to work. Some things 
 we considered but did not make the final cut were making the text colored, 
 having an option to quit, a timer, and a loading bar.
+
 
 * ALEX *
     - constants.py (building the topping dictionary, pizza string)

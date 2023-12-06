@@ -13,8 +13,7 @@ if __name__ == "__main__":
    total_score = 0
    toppings = {}
    symbols_lst = []
-
-   # fun.loading(5)
+  
    fun.fun_type("----PIZZATRON: CS1210 FINAL PROJECT-----")
    fun.fun_type("Created by: Shiloh Chiu and Alex Boswell")
    while True:
@@ -61,6 +60,7 @@ if __name__ == "__main__":
    fun.fun_type("You might wanna make your terminal full screen for this.")
    time.sleep(1)
    fun.fun_type("Okay, let's begin!")
+
    lose = ''
    while True:
       if total_score > level * 4.0 or level == 0:
@@ -79,11 +79,13 @@ if __name__ == "__main__":
                fun.fun_type("...")
                fun.fun_type(random.choice(con.CUSTOMER_INTRO))
                fun.loading(5)
+
                fun.fun_type(random.choice(con.CUSTOMER_ORDER))
                print(target)
                time.sleep(3)
                # allow the user to attempt to recreate the pizza
                fun.fun_type("Making the pizza dough...")
+
                fun.loading(5)
                made_pizza = fun.input_pizza(toppings)
                # generate a pizza
@@ -92,6 +94,7 @@ if __name__ == "__main__":
                print(score)
          else:
             break
+
       else:
          lose = True
          break
