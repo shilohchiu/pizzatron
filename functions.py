@@ -34,10 +34,6 @@ import random
 import constants as con
 import time
 import sys
-import threading
-
-# also figure out a timer
-# colors
 
 def str_to_lst(str):
   lst = []
@@ -78,16 +74,12 @@ def replace_blank(topping, pizza):
   return new_pizza
 
 def topping_valid(userkey, topps):
-  # tests if topping which user enters is a 
-  # valid topping, called in input_pizza
   cur_key = userkey
   while cur_key not in topps:
     cur_key = input("Sorry, " + cur_key + " is not a valid pizza topping! Type a valid topping here: ")
   return topps.get(cur_key)
 
 def input_pizza(toppings):
-  # iterates through topping spaces and 
-  # replaces space with topping input
   user_pizza = str_to_lst(con.PIZZASTR)
   toppingnum = 1
   print(lst_to_str(user_pizza))
@@ -106,14 +98,11 @@ def input_pizza(toppings):
   return user_pizza
 
 def add_new_symbols(toppings, symbols):
-  # toppings is the dict
-  # toppings_symbols is the list
   for symbol in toppings.values():
     if symbol not in symbols:
       symbols.append(symbol)
 
 def pick_toppings(unlocked_toppings):
-  # working purely with list of symbols
   picked_toppings = []
   for _ in range(random.randint(1,len(unlocked_toppings))):
     i = random.choice(unlocked_toppings)
@@ -149,10 +138,7 @@ def generate_pizza(picked_toppings):
   
   return new_pizza
 
-
 def level_up(level, available_toppings):
-  # available_toppings is the dictionary
-  # in main : toppings
   name = ''
   symbol = ''
   try:
@@ -226,8 +212,9 @@ def fun_type(str):
   sys.stdout.write("\n")
   time.sleep(.75)
 
-def write_stats(last_made_pizza, win_lose_quit, total_score):
+def write_stats(last_made_pizza, win_lose_quit, total_score, name):
   with open("pizzatron.txt", "w") as f:
+    f.write(f"PIZZATRON STATS FOR {name}:\n")
     for line in con.STATS:
       f.write(line)
     f.write(f"YOU {win_lose_quit.upper()} THIS GAME!\n")
@@ -239,3 +226,18 @@ def write_stats(last_made_pizza, win_lose_quit, total_score):
     else:
       f.write("You didn't make any pizzas.")
     f.write("\nTHANK YOU FOR PLAYING PIZZATRON")
+
+def loading(n):
+  for _ in range(n):
+    for char in r"""\|/—\|/—""":
+      sys.stdout.write(char)
+      n += 1
+      sys.stdout.flush()
+      sys.stdout.write("\b")
+      time.sleep(.1)
+  sys.stdout.write("\n")
+  time.sleep(.75)
+
+if __name__ == "__main__":
+  loading(10)
+

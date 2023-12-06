@@ -11,12 +11,9 @@ import constants as con
 if __name__ == "__main__":
    level = 0
    total_score = 0
-   toppings = {} # <-- name : symbol
-   # initializes the list of toppings (based on dictionary
-   # toppings); changes as more toppings are available to 
-   # the user
-   symbols_lst = [] # stores the list of unlocked topping symbols<-- 
-
+   toppings = {}
+   symbols_lst = []
+  
    fun.fun_type("----PIZZATRON: CS1210 FINAL PROJECT-----")
    fun.fun_type("Created by: Shiloh Chiu and Alex Boswell")
    while True:
@@ -63,24 +60,15 @@ if __name__ == "__main__":
    fun.fun_type("You might wanna make your terminal full screen for this.")
    time.sleep(1)
    fun.fun_type("Okay, let's begin!")
-   # display LEVEL 1 and print the list of dictionaries
-   # make a "level up" loop that generates a pizza for each level # (another loop)
-   # while the score is above a certain #, after the score fails/the user fails to make a pizza 
-   # the loop ends
+
+   lose = ''
    while True:
       if total_score > level * 4.0 or level == 0:
-         lose = ''
-         quit_ = ''
+         
+         # quit_ = ''
          level += 1
          win = fun.level_up(level, toppings)
-         # print(win)
          if win == False:
-            # print(level)
-            """if level < 5:
-               rounds = level
-            else:
-               rounds = 5"""
-            
             rounds = 2
                
             for _ in range(rounds):
@@ -90,22 +78,23 @@ if __name__ == "__main__":
                target = fun.generate_pizza(picked_toppings)
                fun.fun_type("...")
                fun.fun_type(random.choice(con.CUSTOMER_INTRO))
+               fun.loading(5)
+
                fun.fun_type(random.choice(con.CUSTOMER_ORDER))
                print(target)
                time.sleep(3)
                # allow the user to attempt to recreate the pizza
                fun.fun_type("Making the pizza dough...")
-               time.sleep(.25)
+
+               fun.loading(5)
                made_pizza = fun.input_pizza(toppings)
                # generate a pizza
                score = fun.score_pizza(target, made_pizza, picked_toppings)
                total_score += score
                print(score)
-               """if score < 4.5:
-                  lose = True 
-                  break"""
          else:
-            break # win == True
+            break
+
       else:
          lose = True
          break
@@ -116,14 +105,14 @@ if __name__ == "__main__":
                   " directory! This file is named pizzatron.txt")
       fun.fun_type("Quitting the game. Thanks for playing! ")
       time.sleep(1)
-      fun.write_stats(made_pizza,"lost", total_score)
+      fun.write_stats(made_pizza,"lost", total_score, name)
    elif win == True:
       fun.fun_type("CONGRATULATIONS! You have completed all levels of Pizzatron.")
       fun.fun_type("Printing a file of your game stats to your current"\
                   " directory! This file is named pizzatron.txt")
       fun.fun_type("Quitting the game. Thanks for playing! ")
       time.sleep(1)
-      fun.write_stats(made_pizza,"won", total_score)
+      fun.write_stats(made_pizza,"won", total_score, name)
    """elif quit_ == True:
       fun.fun_type("Aw, looks like you chose to quit.")
       fun.fun_type("Printing a file of your game stats to your current"\
