@@ -202,8 +202,9 @@ def fun_type(str):
   sys.stdout.write("\n")
   time.sleep(.75)
 
-def write_stats(last_made_pizza, win_lose_quit, total_score):
+def write_stats(last_made_pizza, win_lose_quit, total_score, name):
   with open("pizzatron.txt", "w") as f:
+    f.write(f"PIZZATRON STATS FOR {name}:\n")
     for line in con.STATS:
       f.write(line)
     f.write(f"YOU {win_lose_quit.upper()} THIS GAME!\n")
@@ -218,7 +219,7 @@ def write_stats(last_made_pizza, win_lose_quit, total_score):
 
 def loading(n):
   for _ in range(n):
-    for i, char in enumerate(r"""\|/-\|/-"""):
+    for char in r"""\|/—\|/—""":
       sys.stdout.write(char)
       n += 1
       sys.stdout.flush()

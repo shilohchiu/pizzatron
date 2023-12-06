@@ -69,6 +69,6 @@ CUSTOMER_ORDER = ["This is the pizza they ordered. ",
 STATS = ["----------------------------\n",
          "THANKS FOR PLAYING PIZZATRON\n",
          "----------------------------\n"
-         
-    
 ]
+
+STARS = ["★","☆"]

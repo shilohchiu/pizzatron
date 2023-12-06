@@ -102,14 +102,14 @@ if __name__ == "__main__":
                   " directory! This file is named pizzatron.txt")
       fun.fun_type("Quitting the game. Thanks for playing! ")
       time.sleep(1)
-      fun.write_stats(made_pizza,"lost", total_score)
+      fun.write_stats(made_pizza,"lost", total_score, name)
    elif win == True:
       fun.fun_type("CONGRATULATIONS! You have completed all levels of Pizzatron.")
       fun.fun_type("Printing a file of your game stats to your current"\
                   " directory! This file is named pizzatron.txt")
       fun.fun_type("Quitting the game. Thanks for playing! ")
       time.sleep(1)
-      fun.write_stats(made_pizza,"won", total_score)
+      fun.write_stats(made_pizza,"won", total_score, name)
    """elif quit_ == True:
       fun.fun_type("Aw, looks like you chose to quit.")
       fun.fun_type("Printing a file of your game stats to your current"\
