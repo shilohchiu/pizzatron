@@ -1,33 +1,5 @@
 """
 All the major functions our game relies on.
-
-GUIDE: 
-----------------replace_blank()----------------
-- takes two arguments (topping and the pizza) 
-and replaces the underscores in the second 
-argument to have the topping.
-- returns the modified verson of the second
-argument
------------------write_stats()-----------------
-- writes a .txt file to the user's computer that
-shows them the stats of their game when the user
-finishes the game
-----------------level_up()----------------
-- allows more dictionary keys to be unlocked and prints
-what level you are currently on and also the dictionary 
-keys and what they are represented as symbolically.
-- if level != 1 then the computer will tell you the 
-number of points you had on each round (calculated in 
-the score pizza function)
-----------------generate_pizza()----------------
-- generates a new pizza + prints it out the screen
-asking the user to recreate it (uses the random 
-generator)
-- takes the list of unlocked toppings as an argument
-----------------score_pizza()----------------
-- used with replace_blank, will take the user
-input and give a score out of 10 based on 
-game parameters
 """
 
 import random
@@ -66,7 +38,8 @@ def replace_blank(topping, pizza):
 def topping_valid(userkey, topps):
   cur_key = userkey
   while cur_key not in topps:
-    cur_key = input("Sorry, " + cur_key + " is not a valid pizza topping! Type a valid topping here: ")
+    cur_key = input(f"Sorry, {cur_key} is not a valid "\
+                     "pizza topping! Type a valid topping here: ")
   return topps.get(cur_key)
 
 def input_pizza(toppings):
@@ -74,7 +47,7 @@ def input_pizza(toppings):
   toppingnum = 1
   print(lst_to_str(user_pizza))
   while '(_)' in lst_to_str(user_pizza):
-    newtop = input("What will you make for topping #" + str(toppingnum) + "? ")
+    newtop = input(f"What will you make for topping # {toppingnum}? ")
     top_symbol = topping_valid(newtop.lower(), toppings)
     i1 = 1
     for v in user_pizza:
@@ -149,7 +122,8 @@ def level_up(level, available_toppings):
   fun_type("-------------------------------")
   while True:
     fun_type("Would you like to be reminded of which toppings are available? "\
-             "If you select n, only new unlocked toppings will be shown to you.")
+             "If you select n, only new unlocked toppings will be shown to"\
+             " you.")
     show_all = input("(y/n)\n")
     if show_all.upper() == "Y":
       fun_type("Here is a list of all toppings you have unlocked.")
@@ -164,7 +138,8 @@ def level_up(level, available_toppings):
         elif key == "symbol":
           symbol = info
         if name and symbol:
-          fun_type(f"The topping {name} is represented by the symbol {symbol}.")
+          fun_type(f"The topping {name} is represented by the symbol"\
+                   f" {symbol}.")
           name = ''
           symbol = ''
       return False
