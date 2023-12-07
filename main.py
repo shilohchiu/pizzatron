@@ -34,7 +34,7 @@ if __name__ == "__main__":
          break
       elif answer.upper() == 'N':
          fun.fun_type(f"Too bad! You're going to learn to make some"\
-                      " pizzas anyways, {name}. Let's get started.")
+                      " pizzas anyways, " f"{name}. Let's get started.")
          break
       else:
          fun.fun_type("Please input y or n as answers! ")
