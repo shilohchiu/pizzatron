@@ -195,6 +195,8 @@ def score_pizza(target, made_pizza, picked_toppings):
   for topping in picked_toppings:
     expected = target_pizza_lst.count(topping)
     actual = made_pizza_lst.count(topping)
+    if expected == 0:
+      expected = 0.5
     score -= abs(1 - ( actual / expected ))
   return score
 
